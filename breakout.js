@@ -32,6 +32,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = 'black';
@@ -40,20 +41,23 @@ function draw() {
 
   ctx.beginPath();
   ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
-  ctx.fillStyle = 'black'; 
+  ctx.fillStyle = 'black';
   ctx.fill();
   
+ 
+  ctx.strokeStyle = 'black';
   for (let brick of bricks) {
     if (brick.visible) {
       ctx.fillStyle = 'red';
       ctx.fillRect(brick.x, brick.y, brick.width, brick.height);
+      ctx.strokeRect(brick.x, brick.y, brick.width, brick.height);
     }
   }
   ctx.font = '24px Arial';
-  ctx.fillStyle = 'black';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  ctx.fillText(`Score: ${score}`, 10, 10);
+  ctx.fillStyle = 'green';
+  ctx.fillText(`Score: ${score}`, 10, 110);
 }
 
 
